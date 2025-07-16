@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptex Technologies - Innovating the Future of Software</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030712; /* Darker Slate 950 */
+            color: #e2e8f0; /* Slate 200 */
+        }
+        /* Custom scrollbar for a cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1f2937; /* Gray 800 */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #06b6d4; /* Cyan 500 */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0ea5e9; /* Sky 500 */
+        }
+
+        /* Custom Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .animate-fade-in-down { animation: fadeInDown 1s ease-out forwards; }
+        .animate-fade-in-up { animation: fadeInUp 1s ease-out forwards; }
+        .animate-scale-in { animation: scaleIn 0.8s ease-out forwards; }
+        .animate-slide-in-left { animation: slideInLeft 0.8s ease-out forwards; }
+        .animate-slide-in-right { animation: slideInRight 0.8s ease-out forwards; }
+
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-600 { animation-delay: 0.6s; }
+        .delay-700 { animation-delay: 0.7s; }
+        .delay-800 { animation-delay: 0.8s; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header/Navigation Bar -->
+    <header class="bg-gray-900 shadow-lg py-4 px-6 md:px-12 sticky top-0 z-50 rounded-b-lg border-b border-cyan-500">
+        <nav class="container mx-auto flex justify-between items-center">
+            <div class="text-3xl font-extrabold text-cyan-400">
+                Cryptex Technologies
+            </div>
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="#home" class="text-gray-300 hover:text-cyan-400 font-medium transition duration-300">Home</a></li>
+                <li><a href="#about" class="text-gray-300 hover:text-cyan-400 font-medium transition duration-300">About Us</a></li>
+                <li><a href="#services" class="text-gray-300 hover:text-cyan-400 font-medium transition duration-300">Services</a></li>
+                <li><a href="#portfolio" class="text-gray-300 hover:text-cyan-400 font-medium transition duration-300">Portfolio</a></li>
+                <li><a href="#team" class="text-gray-300 hover:text-cyan-400 font-medium transition duration-300">Team</a></li>
+                <li><a href="#contact" class="text-gray-300 hover:text-cyan-400 font-medium transition duration-300">Contact</a></li>
+            </ul>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-gray-950 bg-opacity-95 z-40 flex items-center justify-center">
+            <button id="close-mobile-menu" class="absolute top-6 right-6 text-white focus:outline-none">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <ul class="flex flex-col space-y-8 text-center">
+                <li><a href="#home" class="text-cyan-100 text-4xl font-bold hover:text-cyan-300 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a></li>
+                <li><a href="#about" class="text-cyan-100 text-4xl font-bold hover:text-cyan-300 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About Us</a></li>
+                <li><a href="#services" class="text-cyan-100 text-4xl font-bold hover:text-cyan-300 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Services</a></li>
+                <li><a href="#portfolio" class="text-cyan-100 text-4xl font-bold hover:text-cyan-300 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Portfolio</a></li>
+                <li><a href="#team" class="text-cyan-100 text-4xl font-bold hover:text-cyan-300 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Team</a></li>
+                <li><a href="#contact" class="text-cyan-100 text-4xl font-bold hover:text-cyan-300 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative bg-gradient-to-br from-gray-900 to-black text-white py-24 md:py-40 flex items-center justify-center overflow-hidden rounded-b-xl shadow-2xl border-b-4 border-cyan-500">
+            <div class="absolute inset-0 opacity-10">
+                <!-- Background pattern with subtle cyan glow -->
+                <svg class="w-full h-full" fill="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <pattern id="pattern-grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <path d="M20 0L0 0 0 20" stroke="currentColor" stroke-width="0.5" class="text-gray-700" />
+                    </pattern>
+                    <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-grid)" />
+                    <circle cx="50" cy="50" r="40" fill="rgba(6, 182, 212, 0.1)" class="animate-pulse absolute inset-0 m-auto" style="animation-duration: 4s; animation-iteration-count: infinite;"></circle>
+                </svg>
+            </div>
+            <div class="container mx-auto text-center relative z-10 px-4">
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 text-cyan-400 animate-fade-in-down">
+                    Cryptex Technologies
+                </h1>
+                <p class="text-xl md:text-3xl mb-10 text-gray-100 opacity-90 animate-fade-in-up delay-200">
+                    Unlocking Digital Potential in Nagpur
+                </p>
+                <a href="#services" class="inline-block bg-purple-600 text-white hover:bg-purple-700 px-10 py-4 rounded-full text-lg font-semibold shadow-xl transform hover:scale-105 transition duration-300 ease-in-out animate-scale-in delay-400">
+                    Explore Our Solutions <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-20 md:py-32 bg-gray-900 rounded-xl shadow-xl mx-4 md:mx-auto my-12 max-w-7xl px-6 border border-gray-800">
+            <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="md:order-2 animate-slide-in-right">
+                    <img src="https://placehold.co/600x400/06b6d4/ffffff?text=Our+Story" alt="About Us Image" class="rounded-lg shadow-2xl w-full h-auto object-cover border-2 border-cyan-500">
+                </div>
+                <div class="md:order-1 animate-slide-in-left">
+                    <h2 class="text-4xl md:text-5xl font-bold text-cyan-400 mb-8">About Cryptex Technologies</h2>
+                    <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                        Established in the heart of Nagpur, Cryptex Technologies is a dynamic and forward-thinking software development company dedicated to crafting innovative and robust digital solutions. Our journey began with a clear vision: to revolutionize businesses by providing cutting-edge, tailor-made software solutions that address complex challenges and unlock new opportunities.
+                    </p>
+                    <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                        We are a collective of passionate innovators, including seasoned software engineers, creative UI/UX designers, insightful data analysts, and strategic project managers. Our collaborative spirit and agile methodologies ensure that every project is executed with precision, transparency, and an unwavering commitment to exceeding client expectations.
+                    </p>
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        At Cryptex, we don't just build software; we forge partnerships. We delve deep into your business objectives, understand your unique ecosystem, and then architect solutions that are not only technologically superior but also strategically aligned with your long-term success. Our dedication to continuous learning and embracing the latest technologies keeps us at the forefront of the digital transformation landscape.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 md:py-32 bg-gray-950 rounded-xl shadow-xl mx-4 md:mx-auto my-12 max-w-7xl px-6 border border-gray-800">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-cyan-400 mb-16">Our Core Services</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Service Card 1 -->
+                    <div class="bg-gray-900 p-8 rounded-lg shadow-lg hover:shadow-2xl transform hover:-translate-y-3 transition duration-500 ease-in-out border border-gray-700 animate-scale-in delay-100">
+                        <div class="text-cyan-400 mb-6">
+                            <i class="fas fa-desktop text-5xl mx-auto"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-100 mb-4">Web Development</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Crafting high-performance, scalable, and secure web applications using modern frameworks like React, Angular, and Vue.js, along with robust backend solutions.
+                        </p>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="bg-gray-900 p-8 rounded-lg shadow-lg hover:shadow-2xl transform hover:-translate-y-3 transition duration-500 ease-in-out border border-gray-700 animate-scale-in delay-200">
+                        <div class="text-cyan-400 mb-6">
+                            <i class="fas fa-mobile-alt text-5xl mx-auto"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-100 mb-4">Mobile App Development</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Building intuitive and feature-rich native (iOS/Android) and cross-platform mobile applications that deliver exceptional user experiences.
+                        </p>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div class="bg-gray-900 p-8 rounded-lg shadow-lg hover:shadow-2xl transform hover:-translate-y-3 transition duration-500 ease-in-out border border-gray-700 animate-scale-in delay-300">
+                        <div class="text-cyan-400 mb-6">
+                            <i class="fas fa-cloud text-5xl mx-auto"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-100 mb-4">Cloud Solutions & DevOps</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Designing, deploying, and managing scalable cloud infrastructure on AWS, Azure, and GCP, coupled with efficient DevOps practices for continuous delivery.
+                        </p>
+                    </div>
+                    <!-- Service Card 4 -->
+                    <div class="bg-gray-900 p-8 rounded-lg shadow-lg hover:shadow-2xl transform hover:-translate-y-3 transition duration-500 ease-in-out border border-gray-700 animate-scale-in delay-400">
+                        <div class="text-cyan-400 mb-6">
+                            <i class="fas fa-cogs text-5xl mx-auto"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-100 mb-4">Custom Software Development</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Developing bespoke software applications from scratch, precisely engineered to automate your unique business processes and solve specific challenges.
+                        </p>
+                    </div>
+                    <!-- Service Card 5 -->
+                    <div class="bg-gray-900 p-8 rounded-lg shadow-lg hover:shadow-2xl transform hover:-translate-y-3 transition duration-500 ease-in-out border border-gray-700 animate-scale-in delay-500">
+                        <div class="text-cyan-400 mb-6">
+                            <i class="fas fa-palette text-5xl mx-auto"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-100 mb-4">UI/UX Design & Consulting</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Creating intuitive, engaging, and aesthetically pleasing user interfaces and experiences that prioritize usability and drive user adoption.
+                        </p>
+                    </div>
+                    <!-- Service Card 6 -->
+                    <div class="bg-gray-900 p-8 rounded-lg shadow-lg hover:shadow-2xl transform hover:-translate-y-3 transition duration-500 ease-in-out border border-gray-700 animate-scale-in delay-600">
+                        <div class="text-cyan-400 mb-6">
+                            <i class="fas fa-chart-line text-5xl mx-auto"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-100 mb-4">Data Analytics & AI</h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Unlocking insights from your data with advanced analytics, machine learning, and AI solutions to inform strategic decision-making and innovation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-20 md:py-32 bg-gray-900 rounded-xl shadow-xl mx-4 md:mx-auto my-12 max-w-7xl px-6 border border-gray-800">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-cyan-400 mb-16">Our Recent Work</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Project Card 1 -->
+                    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-700 group animate-fade-in-up delay-100">
+                        <img src="https://placehold.co/600x400/06b6d4/ffffff?text=Enterprise+CRM" alt="Enterprise CRM Platform" class="w-full h-56 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-100 mb-2">Enterprise CRM Platform</h3>
+                            <p class="text-gray-400 text-sm mb-4">A robust CRM system developed for a large enterprise, streamlining customer interactions and sales processes.</p>
+                            <a href="#" class="text-cyan-500 hover:text-cyan-400 font-medium inline-block transition duration-300">View Case Study <i class="fas fa-external-link-alt ml-1 text-xs"></i></a>
+                        </div>
+                    </div>
+                    <!-- Project Card 2 -->
+                    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-700 group animate-fade-in-up delay-200">
+                        <img src="https://placehold.co/600x400/06b6d4/ffffff?text=Smart+Home+App" alt="Smart Home Automation App" class="w-full h-56 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-100 mb-2">Smart Home Automation App</h3>
+                            <p class="text-gray-400 text-sm mb-4">An intuitive mobile application for controlling smart home devices, enhancing user convenience and security.</p>
+                            <a href="#" class="text-cyan-500 hover:text-cyan-400 font-medium inline-block transition duration-300">View Case Study <i class="fas fa-external-link-alt ml-1 text-xs"></i></a>
+                        </div>
+                    </div>
+                    <!-- Project Card 3 -->
+                    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-700 group animate-fade-in-up delay-300">
+                        <img src="https://placehold.co/600x400/06b6d4/ffffff?text=AI+Healthcare+Diagnostic" alt="AI-Powered Healthcare Diagnostic Tool" class="w-full h-56 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-100 mb-2">AI Healthcare Diagnostic Tool</h3>
+                            <p class="text-gray-400 text-sm mb-4">An AI-driven platform assisting medical professionals with faster and more accurate diagnostics.</p>
+                            <a href="#" class="text-cyan-500 hover:text-cyan-400 font-medium inline-block transition duration-300">View Case Study <i class="fas fa-external-link-alt ml-1 text-xs"></i></a>
+                        </div>
+                    </div>
+                    <!-- Project Card 4 -->
+                    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-700 group animate-fade-in-up delay-400">
+                        <img src="https://placehold.co/600x400/06b6d4/ffffff?text=Fintech+Trading+Platform" alt="Fintech Trading Platform" class="w-full h-56 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-100 mb-2">Fintech Trading Platform</h3>
+                            <p class="text-gray-400 text-sm mb-4">A secure and high-speed trading platform with real-time data analytics for financial institutions.</p>
+                            <a href="#" class="text-cyan-500 hover:text-cyan-400 font-medium inline-block transition duration-300">View Case Study <i class="fas fa-external-link-alt ml-1 text-xs"></i></a>
+                        </div>
+                    </div>
+                    <!-- Project Card 5 -->
+                    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-700 group animate-fade-in-up delay-500">
+                        <img src="https://placehold.co/600x400/06b6d4/ffffff?text=Educational+LMS" alt="Educational Learning Management System" class="w-full h-56 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-100 mb-2">Educational LMS</h3>
+                            <p class="text-gray-400 text-sm mb-4">A comprehensive Learning Management System for universities, facilitating online courses and student engagement.</p>
+                            <a href="#" class="text-cyan-500 hover:text-cyan-400 font-medium inline-block transition duration-300">View Case Study <i class="fas fa-external-link-alt ml-1 text-xs"></i></a>
+                        </div>
+                    </div>
+                    <!-- Project Card 6 -->
+                    <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-gray-700 group animate-fade-in-up delay-600">
+                        <img src="https://placehold.co/600x400/06b6d4/ffffff?text=Logistics+Optimization" alt="Logistics Optimization Software" class="w-full h-56 object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-100 mb-2">Logistics Optimization Software</h3>
+                            <p class="text-gray-400 text-sm mb-4">Software solution for logistics companies to optimize routes, manage fleets, and track deliveries in real-time.</p>
+                            <a href="#" class="text-cyan-500 hover:text-cyan-400 font-medium inline-block transition duration-300">View Case Study <i class="fas fa-external-link-alt ml-1 text-xs"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="py-20 md:py-32 bg-gray-950 rounded-xl shadow-xl mx-4 md:mx-auto my-12 max-w-7xl px-6 border border-gray-800">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-cyan-400 mb-16">Meet Our Visionary Team</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+                    <!-- Team Member 1 -->
+                    <div class="bg-gray-900 p-8 rounded-lg shadow-lg border border-gray-700 animate-fade-in-up delay-100">
+                        <img src="https://placehold.co/180x180/06b6d4/ffffff?text=JD" alt="John Doe" class="w-40 h-40 rounded-full mx-auto mb-6 object-cover border-4 border-cyan-500">
+                        <h3 class="text-2xl font-semibold text-gray-100">John Doe</h3>
+                        <p class="text-cyan-500 mb-3 text-lg">CEO & Founder</p>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            A seasoned entrepreneur with a passion for disruptive technologies and a track record of successful ventures.
+                        </p>
+                    </div>
+                    <!-- Team Member 2 -->
+                    <div class="bg-gray-900 p-8 rounded-lg shadow-lg border border-gray-700 animate-fade-in-up delay-200">
+                        <img src="https://placehold.co/180x180/06b6d4/ffffff?text=JS" alt="Jane Smith" class="w-40 h-40 rounded-full mx-auto mb-6 object-cover border-4 border-cyan-500">
+                        <h3 class="text-2xl font-semibold text-gray-100">Jane Smith</h3>
+                        <p class="text-cyan-500 mb-3 text-lg">Chief Technology Officer</p>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            An innovative technologist leading our engineering efforts, specializing in scalable architectures and AI.
+                        </p>
+                    </div>
+                    <!-- Team Member 3 -->
+                    <div class="bg-gray-900 p-8 rounded-lg shadow-lg border border-gray-700 animate-fade-in-up delay-300">
+                        <img src="https://placehold.co/180x180/06b6d4/ffffff?text=AP" alt="Alice P." class="w-40 h-40 rounded-full mx-auto mb-6 object-cover border-4 border-cyan-500">
+                        <h3 class="text-2xl font-semibold text-gray-100">Alice P.</h3>
+                        <p class="text-cyan-500 mb-3 text-lg">Lead UI/UX Designer</p>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Crafting visually stunning and highly intuitive user experiences that captivate and engage.
+                        </p>
+                    </div>
+                    <!-- Team Member 4 -->
+                    <div class="bg-gray-900 p-8 rounded-lg shadow-lg border border-gray-700 animate-fade-in-up delay-400">
+                        <img src="https://placehold.co/180x180/06b6d4/ffffff?text=RB" alt="Robert B." class="w-40 h-40 rounded-full mx-auto mb-6 object-cover border-4 border-cyan-500">
+                        <h3 class="text-2xl font-semibold text-gray-100">Robert B.</h3>
+                        <p class="text-cyan-500 mb-3 text-lg">Head of Marketing</p>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Driving our brand forward with innovative marketing strategies and client engagement initiatives.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contact" class="py-20 md:py-32 bg-gray-900 rounded-xl shadow-xl mx-4 md:mx-auto my-12 max-w-7xl px-6 border border-gray-800">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-cyan-400 mb-16">Get in Touch</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                    <!-- Contact Form -->
+                    <div class="bg-gray-950 p-8 rounded-lg shadow-inner border border-gray-700 animate-slide-in-left">
+                        <h3 class="text-3xl font-semibold text-gray-100 mb-8">Send us a message</h3>
+                        <form action="#" method="POST" class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-gray-300 text-sm font-medium mb-2">Your Name</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-md text-gray-100 placeholder-gray-400 focus:ring-cyan-500 focus:border-cyan-500" placeholder="John Doe" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-300 text-sm font-medium mb-2">Your Email</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-md text-gray-100 placeholder-gray-400 focus:ring-cyan-500 focus:border-cyan-500" placeholder="you@example.com" required>
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-gray-300 text-sm font-medium mb-2">Subject</label>
+                                <input type="text" id="subject" name="subject" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-md text-gray-100 placeholder-gray-400 focus:ring-cyan-500 focus:border-cyan-500" placeholder="Inquiry about services">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-300 text-sm font-medium mb-2">Your Message</label>
+                                <textarea id="message" name="message" rows="6" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-md text-gray-100 placeholder-gray-400 focus:ring-cyan-500 focus:border-cyan-500" placeholder="Tell us about your project or question..." required></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-purple-600 text-white px-8 py-4 rounded-md font-semibold text-lg hover:bg-purple-700 transition duration-300 ease-in-out shadow-lg transform hover:scale-105">
+                                Send Message <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info and Map -->
+                    <div class="space-y-10 text-left animate-slide-in-right">
+                        <div>
+                            <h3 class="text-3xl font-semibold text-gray-100 mb-6">Find Our Office</h3>
+                            <p class="text-gray-300 mb-4 flex items-center text-lg">
+                                <i class="fas fa-map-marker-alt text-cyan-500 text-2xl mr-4"></i>
+                                <strong>Address:</strong> 123 Software Park, Tech Zone, Nagpur, Maharashtra 440001, India
+                            </p>
+                            <p class="text-gray-300 mb-4 flex items-center text-lg">
+                                <i class="fas fa-phone-alt text-cyan-500 text-2xl mr-4"></i>
+                                <strong>Phone:</strong> +91 98765 43210
+                            </p>
+                            <p class="text-gray-300 mb-4 flex items-center text-lg">
+                                <i class="fas fa-envelope text-cyan-500 text-2xl mr-4"></i>
+                                <strong>Email:</strong> info@cryptextech.com
+                            </p>
+                            <p class="text-gray-300 mb-4 flex items-center text-lg">
+                                <i class="fas fa-clock text-cyan-500 text-2xl mr-4"></i>
+                                <strong>Working Hours:</strong> Mon - Fri: 9 AM - 6 PM
+                            </p>
+                        </div>
+                        <!-- Google Map Embed -->
+                        <div class="rounded-lg overflow-hidden shadow-xl border border-gray-700">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.40108006126!2d79.0833299!3d21.1449884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c066f10e42d7%3A0x3b0b5e0a0d4c0b5e!2sNagpur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 py-12 md:py-16 rounded-t-xl shadow-2xl border-t-4 border-cyan-500">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 text-gray-300">
+            <!-- Company Info -->
+            <div>
+                <h3 class="text-2xl font-bold text-cyan-400 mb-6">Cryptex Technologies</h3>
+                <p class="text-gray-400 leading-relaxed mb-4">
+                    Innovating software solutions for a digital-first world. Based in Nagpur, India, serving clients globally.
+                </p>
+                <p class="text-gray-400">© 2025 Cryptex Technologies. All rights reserved.</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-xl font-semibold text-gray-100 mb-6">Quick Links</h4>
+                <ul class="space-y-3">
+                    <li><a href="#home" class="text-gray-400 hover:text-cyan-400 transition duration-300"><i class="fas fa-chevron-right text-cyan-500 text-sm mr-2"></i>Home</a></li>
+                    <li><a href="#about" class="text-gray-400 hover:text-cyan-400 transition duration-300"><i class="fas fa-chevron-right text-cyan-500 text-sm mr-2"></i>About Us</a></li>
+                    <li><a href="#services" class="text-gray-400 hover:text-cyan-400 transition duration-300"><i class="fas fa-chevron-right text-cyan-500 text-sm mr-2"></i>Services</a></li>
+                    <li><a href="#portfolio" class="text-gray-400 hover:text-cyan-400 transition duration-300"><i class="fas fa-chevron-right text-cyan-500 text-sm mr-2"></i>Portfolio</a></li>
+                    <li><a href="#contact" class="text-gray-400 hover:text-cyan-400 transition duration-300"><i class="fas fa-chevron-right text-cyan-500 text-sm mr-2"></i>Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Our Services -->
+            <div>
+                <h4 class="text-xl font-semibold text-gray-100 mb-6">Our Services</h4>
+                <ul class="space-y-3">
+                    <li><a href="#services" class="text-gray-400 hover:text-cyan-400 transition duration-300"><i class="fas fa-chevron-right text-cyan-500 text-sm mr-2"></i>Web Development</a></li>
+                    <li><a href="#services" class="text-gray-400 hover:text-cyan-400 transition duration-300"><i class="fas fa-chevron-right text-cyan-500 text-sm mr-2"></i>Mobile App Development</a></li>
+                    <li><a href="#services" class="text-gray-400 hover:text-cyan-400 transition duration-300"><i class="fas fa-chevron-right text-cyan-500 text-sm mr-2"></i>Cloud Solutions</a></li>
+                    <li><a href="#services" class="text-gray-400 hover:text-cyan-400 transition duration-300"><i class="fas fa-chevron-right text-cyan-500 text-sm mr-2"></i>Custom Software</a></li>
+                    <li><a href="#services" class="text-gray-400 hover:text-cyan-400 transition duration-300"><i class="fas fa-chevron-right text-cyan-500 text-sm mr-2"></i>UI/UX Design</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact & Social -->
+            <div>
+                <h4 class="text-xl font-semibold text-gray-100 mb-6">Connect With Us</h4>
+                <p class="text-gray-400 mb-3 flex items-center">
+                    <i class="fas fa-phone-alt text-cyan-500 mr-3"></i> +91 98765 43210
+                </p>
+                <p class="text-gray-400 mb-6 flex items-center">
+                    <i class="fas fa-envelope text-cyan-500 mr-3"></i> info@cryptextech.com
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-cyan-500 transition duration-300 text-2xl"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-cyan-500 transition duration-300 text-2xl"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-cyan-500 transition duration-300 text-2xl"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-cyan-500 transition duration-300 text-2xl"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                
+                if (href && href !== '#') {
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        closeMobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        const faders = document.querySelectorAll('.animate-fade-in-down, .animate-fade-in-up, .animate-scale-in, .animate-slide-in-left, .animate-slide-in-right');
+
+        const appearOptions = {
+            threshold: 0.1, // Trigger when 10% of the element is visible
+            rootMargin: "0px 0px -50px 0px" // Adjusts when the animation triggers (e.g., 50px before it's fully in view)
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    
+                    return;
+                } else {
+                    entry.target.classList.add('appeared'); // Add a class to trigger the animation
+                    entry.target.style.opacity = '1'; // Ensure opacity is 1 after animation
+                    entry.target.style.transform = 'none'; // Ensure transform is reset after animation
+                    appearOnScroll.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            fader.style.opacity = '0'; 
+            fader.style.transform = fader.classList.contains('animate-fade-in-down') ? 'translateY(-20px)' :
+                                    fader.classList.contains('animate-fade-in-up') ? 'translateY(20px)' :
+                                    fader.classList.contains('animate-scale-in') ? 'scale(0.9)' :
+                                    fader.classList.contains('animate-slide-in-left') ? 'translateX(-50px)' :
+                                    fader.classList.contains('animate-slide-in-right') ? 'translateX(50px)' : 'none'; // Set initial transform
+            appearOnScroll.observe(fader);
+        });
+
+     
+        window.addEventListener('load', () => {
+            faders.forEach(fader => {
+                const rect = fader.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    fader.classList.add('appeared');
+                    fader.style.opacity = '1';
+                    fader.style.transform = 'none';
+                }
+            });
+        });
+
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.animate-fade-in-down, .animate-fade-in-up, .animate-scale-in, .animate-slide-in-left, .animate-slide-in-right');
+            elements.forEach(el => {
+               
+                const rect = el.getBoundingClientRect();
+                const isVisible = (rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth));
+
+                if (isVisible) {
+                    el.style.animationPlayState = 'running';
+                } else {
+                    el.style.animationPlayState = 'paused'; // Pause if not in view
+                }
+            });
+        });
+
+        
+        window.addEventListener('scroll', () => {
+            const elements = document.querySelectorAll('.animate-fade-in-down, .animate-fade-in-up, .animate-scale-in, .animate-slide-in-left, .animate-slide-in-right');
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const isVisible = (rect.top < window.innerHeight && rect.bottom > 0);
+                if (isVisible) {
+                    el.style.animationPlayState = 'running';
+                } else {
+                    el.style.animationPlayState = 'paused';
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
